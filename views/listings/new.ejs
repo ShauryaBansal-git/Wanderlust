@@ -3,16 +3,18 @@
   <div class="col-7 offset-2">
     <br><br>
     <h3>Create New Listing</h3>
-    <form action="/listings" method="post">
+    <form action="/listings" method="post" novalidate class="needs-validation">
       
       <div class="mb-3">
         <label for="title" class="form-label">Title:</label>
-        <input type="text" class="form-control" name="listing[title]" />
+        <input type="text" class="form-control" name="listing[title]" required />
+        <div class="valid-feedback">Title looks good!</div>
       </div>
 
       <div class="mb-3">
         <label for="description" class="form-label">Description:</label>
-        <input type="text" class="form-control" name="listing[description]" />
+        <input type="text" class="form-control" name="listing[description]" required />
+        <div class="invalid-feedback">Please enter short description!</div>
       </div>
 
       <div class="mb-3">
@@ -29,21 +31,24 @@
         <div class="col-md-4">
           <div class="mb-3">
             <label for="price" class="form-label">Price:</label>
-            <input type="number" class="form-control" name="listing[price]" />
+            <input type="number" class="form-control" name="listing[price]" required />
+            <div class="invalid-feedback">Please Enter valid price!</div>
           </div>
         </div>
 
         <div class="col-md-8">
           <div class="mb-3">
             <label for="country" class="form-label">Country:</label>
-            <input type="text" class="form-control" name="listing[country]" />
+            <input type="text" class="form-control" name="listing[country]" required />
+            <div class="invalid-feedback">Country should be valid!</div>
           </div>
         </div>
       </div>
 
       <div class="mb-3">
         <label for="location" class="form-label">Location:</label>
-        <input type="text" class="form-control" name="listing[location]" />
+        <input type="text" class="form-control" name="listing[location]" required />
+        <div class="invalid-feedback">Location should be valid!</div>
       </div>
 
       <br />

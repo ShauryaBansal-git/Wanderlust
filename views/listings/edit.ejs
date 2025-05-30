@@ -2,7 +2,7 @@
 <div class="row mt-3">
   <div class="col-7 offset-2">
     <h3><%= data.title %></h3>
-    <form action="/listings/<%= data._id %>?_method=put" method="post">
+    <form action="/listings/<%= data._id %>?_method=put" method="post" novalidate class="needs-validation">
       <div class="mb-3">
         <label for="title">title:</label>
         <input
@@ -11,7 +11,9 @@
           id="title"
           value="<%= data.title %>"
           class="form-control"
+          required
         />
+        <div class="valid-feedback">Title looks good!</div>
       </div>
       <div class="mb-3">
         <label for="description">description:</label>
@@ -19,9 +21,11 @@
           name="listing[description]"
           id="description"
           class="form-control"
+          required
         >
             <%= data.description %>
         </textarea>
+        <div class="invalid-feedback">Please enter valid description!</div>
       </div>
       <div class="mb-3">
         <label for="image">Image:</label>
@@ -31,7 +35,9 @@
           id="image"
           value="<%= data.image %>"
           class="form-control"
+          required
         />
+        <div class="invalid-feedback">Please Enter valid image url!</div>
       </div>
       <div class="row">
         <div class="col-md-4">
@@ -43,7 +49,9 @@
                 id="price"
                 value="<%= data.price%>"
                 class="form-control"
+                required
               />
+              <div class="invalid-feedback">Please enter valid price!</div>
             </div>
         </div>
         <div class="col-md-8">
@@ -55,7 +63,9 @@
           id="country"
           value="<%= data.country %>"
           class="form-control"
+          required
         />
+        <div class="invalid-feedback">Please enter valid country!</div>
       </div>
         </div>
       </div>
@@ -67,7 +77,9 @@
           id="location"
           value="<%= data.location %>"
           class="form-control"
+          required
         />
+        <div class="invalid-feedback">Please enter valid location!</div>
       </div>
       <button class="btn add-btn btn-dark mt-3">Edit</button>
       <br><br>
