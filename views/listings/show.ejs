@@ -1,4 +1,4 @@
-<%- layout("/layouts/boilerplate") %>
+<%- layout("layouts/boilerplate") %>
 <div class="row mt-3">
     <div class="col-8 offset-2">
         <h3>Listings Details:-</h3>
@@ -14,7 +14,7 @@
     <div class="btns">
         <a href="/listings/<%= data._id %>/edit" class="btn btn-dark add-btn col-1 offset-2">Edit</a>
         
-        <form action="/listings/<%= data.id %>?_method=delete" method="post">
+        <form action="/listings/<%= data._id %>?_method=delete" method="post">
             <button class="btn btn-dark offset-3">Delete</button>
         </form>
     </div>
