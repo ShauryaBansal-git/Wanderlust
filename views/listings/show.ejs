@@ -1,7 +1,7 @@
 <%- layout("layouts/boilerplate") %>
 <div class="row mt-3">
     <div class="col-8 offset-2">
-        <h3>Listings Details:-</h3>
+        <h3><%= data.title %>:-</h3>
     </div>
 
     <div class="card col-6 offset-2">
@@ -18,4 +18,24 @@
             <button class="btn btn-dark offset-3">Delete</button>
         </form>
     </div>
+    
+    <div class="col-6 offset-2 mb-3">
+        <hr>
+        <h4>Leave a Review :-</h4>
+        <form action="/listings/<%= data._id %>/reviews" method="post" novalidate class="needs-validation">
+            <div class="mb-3 mt-3">
+                <label for="rating" class="form-label">Rating</label>
+                <input type="range" name="review[rating]" class="form-range" id="rating" min="1" max="5">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="comment" class="form-label">Comment :</label>
+                <textarea name="review[comment]" class="form-control" id="comment" rows="5" cols="30" required></textarea>
+                <div class="invalid-feedback">
+                    Please Provide Some Comment !!
+                </div>
+            </div>
+            <button class="btn btn-outline-dark">Submit</button>
+        </form>
+    </div>
+    
 </div>
