@@ -4,7 +4,7 @@
         <h3><%= data.title %>:-</h3>
     </div>
 
-    <div class="card col-6 offset-2">
+    <div class=" card listing-card col-6 offset-2">
         <img src="<%= data.image %>" class="card-img-top show-img" alt="listing_image">
         <div class="card-body">
             <p class="card-text"><b><%= data.title %></b><br><%= data.description %> <br> &#8377;<%= data.price.toLocaleString("en-IN") %> <br> <%= data.location %> <br> <%= data.country %></p>
@@ -24,6 +24,10 @@
         <h4>Leave a Review :-</h4>
         <form action="/listings/<%= data._id %>/reviews" method="post" novalidate class="needs-validation">
             <div class="mb-3 mt-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" name="review[username]" id="username" class="form-control">
+            </div>
+            <div class="mb-3 mt-3">
                 <label for="rating" class="form-label">Rating</label>
                 <input type="range" name="review[rating]" class="form-range" id="rating" min="1" max="5">
             </div>
@@ -36,6 +40,25 @@
             </div>
             <button class="btn btn-outline-dark">Submit</button>
         </form>
+
+        <hr>
+
+        <h4>All Reviews </h4>
+        <div class="row">
+            <% for( review of data.reviews ) { %>
+            <div class="card col-4 mb-5 ms-2">
+                <div class="card-body">
+                    <h5 class="card-title"><%= review.username %></h5>
+                    <p class="card-text"><%= review.comment %></p>
+                    <p class="card-text"><%= review.rating %>Stars</p>
+                </div>
+                <form action="/listings/<%= data._id %>/reviews/<%= review._id %>?_method=delete" class="mb-3 mt-3" method="post">
+                    <button class="btn btn-dark btn-sm">Delete</button>
+                </form>
+            </div>
+            <% } %>
+        </div>
+
     </div>
     
 </div>
