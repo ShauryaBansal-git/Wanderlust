@@ -5,7 +5,6 @@ const review = require("./review.js");
 const listingSchema = new Schema({
     title : {
         type : String,
-        required : true,
     },
     description : String,
     image : {
@@ -17,7 +16,6 @@ const listingSchema = new Schema({
     },
     price : {
         type : Number,
-        required : true,
     },
     location : String,
     country : String,
