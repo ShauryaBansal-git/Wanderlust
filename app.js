@@ -57,11 +57,12 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req,res,next)=>{
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
+    res.locals.currUser = req.user;
     next();
 });
 
 app.get("/",(req,res)=>{
-    res.send("this root route");
+    res.redirect("/listings");
 });
 
 app.use("/listings",listingsRoute);
@@ -69,7 +70,7 @@ app.use("/listings/:id/reviews",reviewsRoute);
 app.use("/user",usersRoute);
 
 
-app.all("*",(req,res,next)=>{
+app.get("/",(req,res,next)=>{
     console.log("reached");
     next(new ExpressError(404,"page not found!"));
 });
